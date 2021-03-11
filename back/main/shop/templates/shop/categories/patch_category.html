@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>patch</title>
+</head>
+<body>
+{% if user.is_authenticated %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+    <p><input type="submit" value="Изменить"></p>
+</form>
+
+<form action="{% url 'delete_category' object.id %}">
+                <button>Удалить</button>
+            </form>
+{% endif %}
+</body>
+</html>
